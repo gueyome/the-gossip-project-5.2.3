@@ -1,0 +1,12 @@
+<% if flash[:success] == 'Le Gossip a bien été créé' %>
+<div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+<% end %>
+
+<h1>Welcome  </h1>
+<p>BIENVENUE ! Voilà tous les gossips de ces derniers jours, tiens toi prêt ça décoiffe ! </p>
+
+<p> <% @gossips.each do |gossip| %>
+      <p> <%= gossip.title %> écrit par <%= gossip.user.first_name %> </p>
+      <p> <%= link_to "accède ici à la page de ce gossip", gossip_path(gossip.id) %>
+      <% end %>
+</p>
